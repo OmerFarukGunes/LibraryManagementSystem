@@ -71,11 +71,11 @@ namespace LibraryManagementSystem
                 if (DS.Tables[0].Rows.Count!=0)
                 {
                     TBName.Text = DS.Tables[0].Rows[0][1].ToString();
-                    TBSurname.Text = DS.Tables[0].Rows[0][2].ToString();
-                    TBTC.Text = DS.Tables[0].Rows[0][3].ToString();
-                    TBEmail.Text = DS.Tables[0].Rows[0][4].ToString();
-                    TBPhone.Text = DS.Tables[0].Rows[0][5].ToString();
-                    TBStudentNo.Text = DS.Tables[0].Rows[0][6].ToString();
+                    TBSurname.Text = DS.Tables[0].Rows[0][6].ToString();
+                    TBTC.Text = DS.Tables[0].Rows[0][2].ToString();
+                    TBEmail.Text = DS.Tables[0].Rows[0][3].ToString();
+                    TBPhone.Text = DS.Tables[0].Rows[0][4].ToString();
+                    TBStudentNo.Text = DS.Tables[0].Rows[0][5].ToString();
                 }
                 else
                 {
@@ -105,7 +105,7 @@ namespace LibraryManagementSystem
                 cmd.Connection = con;
                 con.Open();
                 string a = TBPrice.Text.Replace(" ₺", "");
-                cmd.CommandText = "insert into BorrowedBookTbl (UserNo,UserName,UserSurname,UserEmail,UserPhone,UserStudentNo,BookName,BookIssueDate,BookPrice,LibraryID) values(" + TBTC.Text + ",'" + TBName.Text + "','" + TBSurname.Text + "','" + TBEmail.Text + "','" + TBPhone.Text + "','" + TBStudentNo.Text + "','" + CBBookName.Text + "','" + DTPBorrowDate.Text + "'," + a + "," + Login.LibID + ")";
+                cmd.CommandText = "insert into dbo.BorrowedBookTbl (UserNo,UserName,UserSurname,UserEmail,UserPhone,UserStudentNo,BookName,BookIssueDate,BookPrice,LibraryID) values(" + TBTC.Text + ",'" + TBName.Text + "','" + TBSurname.Text + "','" + TBEmail.Text + "','" + TBPhone.Text + "','" + TBStudentNo.Text + "','" + CBBookName.Text + "','" + DTPBorrowDate.Text + "'," + a + "," + Login.LibID + ")";
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = ("UPDATE ConnectionTbl SET Stock= Stock - 1 WHERE BookID=" + bookID + " AND LibraryID =" + Login.LibID + "");
                 cmd.ExecuteNonQuery();
