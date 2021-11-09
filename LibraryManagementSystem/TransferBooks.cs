@@ -21,7 +21,7 @@ namespace LibraryManagementSystem
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             con.Open();
-            cmd.CommandText = ("Select * from BooksTbl where BookQuantity>0");
+            cmd.CommandText = ("Select * from BookTbl where BookQuantity>0");
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -77,14 +77,14 @@ namespace LibraryManagementSystem
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataSet ds = new DataSet();
                         da.Fill(ds);
-                        cmd.CommandText = ("update BooksTbl set BookQuantity = BookQuantity -" + TBStock.Text + " where BookID=" + TBBookID.Text + "");
+                        cmd.CommandText = ("update BookTbl set BookQuantity = BookQuantity -" + TBStock.Text + " where BookID=" + TBBookID.Text + "");
                         cmd.ExecuteNonQuery();
                     }
                     else
                     {
                         cmd.CommandText = "insert into ConnectionTbl (LibraryID,BookID,Stock) values(" + LibraryID + "," + TBBookID.Text + "," + TBStock.Text + ")";
                         cmd.ExecuteNonQuery();
-                        cmd.CommandText = ("update BooksTbl set BookQuantity = BookQuantity -" + TBStock.Text + " where BookID=" + TBBookID.Text + "");
+                        cmd.CommandText = ("update BookTbl set BookQuantity = BookQuantity -" + TBStock.Text + " where BookID=" + TBBookID.Text + "");
                         cmd.ExecuteNonQuery();
                     }
                     con.Close();

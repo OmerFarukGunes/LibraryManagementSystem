@@ -29,7 +29,7 @@ namespace LibraryManagementSystem
             }
             else
             {
-                cmd.CommandText = ("Select * from BooksTbl");
+                cmd.CommandText = ("Select * from BookTbl");
             }
            
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -63,7 +63,7 @@ namespace LibraryManagementSystem
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 con.Open();
-                cmd.CommandText = ("Select * from BooksTbl where BookID ="+bookId+"");
+                cmd.CommandText = ("Select * from BookTbl where BookID ="+bookId+"");
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -90,7 +90,7 @@ namespace LibraryManagementSystem
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
                     con.Open();
-                    cmd.CommandText = ("update BooksTbl set BookName='" + TBBookName.Text + "',BookAuthor='" + TBBookAuthor.Text + "',BookPublication='" + TBPublication.Text + "',BookPublishDate='" + DateTime.Parse(DTPPublish.Text) + "',BookQuantity=" + TBStock.Text + ",BookPrice=" + TBPrice.Text + " where BookId=" + bookId + "");
+                    cmd.CommandText = ("update BookTbl set BookName='" + TBBookName.Text + "',BookAuthor='" + TBBookAuthor.Text + "',BookPublication='" + TBPublication.Text + "',BookPublishDate='" + DateTime.Parse(DTPPublish.Text) + "',BookQuantity=" + TBStock.Text + ",BookPrice=" + TBPrice.Text + " where BookId=" + bookId + "");
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);

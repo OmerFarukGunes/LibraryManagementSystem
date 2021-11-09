@@ -34,7 +34,7 @@ namespace LibraryManagementSystem
                 else
                     books.Append(dataSource.Tables[0].Rows[i][0].ToString() + ",");
             }
-            cmd.CommandText = ("Select STR(BookID) +' ;' + BookName from BooksTbl where BookID in (" + books + ") AND BookQuantity > 0");
+            cmd.CommandText = ("Select STR(BookID) +' ;' + BookName from BookTbl where BookID in (" + books + ") AND BookQuantity > 0");
             SqlDataReader sdr = cmd.ExecuteReader();
             while (sdr.Read())
             {
@@ -172,7 +172,7 @@ namespace LibraryManagementSystem
             con.ConnectionString = "data source = (localdb)\\MSSQLLocalDB ; database = Library; integrated security = True";
             SqlCommand cmd;
             con.Open();
-            cmd = new SqlCommand("Select BookPrice from BooksTbl where BookID = '"+ bookId + "'",con);
+            cmd = new SqlCommand("Select BookPrice from BookTbl where BookID = '"+ bookId + "'",con);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
             DataSet dataSet = new DataSet();
             dataAdapter.Fill(dataSet);
