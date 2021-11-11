@@ -42,20 +42,25 @@ namespace LibraryManagementSystem
             this.ReturnBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AllBorrowedBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AllReturnedBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AuthorizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AddAuthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListAuthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LibraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddLibraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ListLibraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnClose = new System.Windows.Forms.Button();
+            this.DGVBooks = new System.Windows.Forms.DataGridView();
+            this.TBSearchBook = new System.Windows.Forms.TextBox();
+            this.AddAuthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListAuthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AuthorizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVBooks)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip2
             // 
             this.menuStrip2.BackColor = System.Drawing.Color.MintCream;
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.kitaplarToolStripMenuItem,
             this.MemberToolStripMenuItem,
@@ -65,10 +70,11 @@ namespace LibraryManagementSystem
             this.AllReturnedBooksToolStripMenuItem,
             this.AuthorizeToolStripMenuItem,
             this.LibraryToolStripMenuItem,
-            this.ExitToolStripMenuItem});
+            this.ExitToolStripMenuItem,
+            this.LoginToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1317, 58);
+            this.menuStrip2.Size = new System.Drawing.Size(1317, 72);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -82,7 +88,7 @@ namespace LibraryManagementSystem
             this.kitaplarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("kitaplarToolStripMenuItem.Image")));
             this.kitaplarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.kitaplarToolStripMenuItem.Name = "kitaplarToolStripMenuItem";
-            this.kitaplarToolStripMenuItem.Size = new System.Drawing.Size(109, 54);
+            this.kitaplarToolStripMenuItem.Size = new System.Drawing.Size(125, 68);
             this.kitaplarToolStripMenuItem.Text = "Kitaplar";
             this.kitaplarToolStripMenuItem.Visible = false;
             // 
@@ -91,7 +97,7 @@ namespace LibraryManagementSystem
             this.AddNewBookToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AddNewBookToolStripMenuItem.Image")));
             this.AddNewBookToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AddNewBookToolStripMenuItem.Name = "AddNewBookToolStripMenuItem";
-            this.AddNewBookToolStripMenuItem.Size = new System.Drawing.Size(185, 56);
+            this.AddNewBookToolStripMenuItem.Size = new System.Drawing.Size(221, 56);
             this.AddNewBookToolStripMenuItem.Text = "Yeni Kitap Ekle";
             this.AddNewBookToolStripMenuItem.Click += new System.EventHandler(this.AddNewBookToolStripMenuItem_Click);
             // 
@@ -101,7 +107,7 @@ namespace LibraryManagementSystem
             this.ViewBookToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ViewBookToolStripMenuItem.Image")));
             this.ViewBookToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ViewBookToolStripMenuItem.Name = "ViewBookToolStripMenuItem";
-            this.ViewBookToolStripMenuItem.Size = new System.Drawing.Size(185, 56);
+            this.ViewBookToolStripMenuItem.Size = new System.Drawing.Size(221, 56);
             this.ViewBookToolStripMenuItem.Text = "Kitapları İncele";
             this.ViewBookToolStripMenuItem.Click += new System.EventHandler(this.ViewBookToolStripMenuItem_Click);
             // 
@@ -110,7 +116,7 @@ namespace LibraryManagementSystem
             this.TransferBookToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("TransferBookToolStripMenuItem.Image")));
             this.TransferBookToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TransferBookToolStripMenuItem.Name = "TransferBookToolStripMenuItem";
-            this.TransferBookToolStripMenuItem.Size = new System.Drawing.Size(185, 56);
+            this.TransferBookToolStripMenuItem.Size = new System.Drawing.Size(221, 56);
             this.TransferBookToolStripMenuItem.Text = "Kitap Transferi";
             this.TransferBookToolStripMenuItem.Click += new System.EventHandler(this.TransferBookToolStripMenuItem_Click);
             // 
@@ -123,7 +129,7 @@ namespace LibraryManagementSystem
             this.MemberToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("MemberToolStripMenuItem.Image")));
             this.MemberToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MemberToolStripMenuItem.Name = "MemberToolStripMenuItem";
-            this.MemberToolStripMenuItem.Size = new System.Drawing.Size(89, 54);
+            this.MemberToolStripMenuItem.Size = new System.Drawing.Size(98, 68);
             this.MemberToolStripMenuItem.Text = "Üye";
             this.MemberToolStripMenuItem.Visible = false;
             // 
@@ -132,7 +138,7 @@ namespace LibraryManagementSystem
             this.AddMemberToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AddMemberToolStripMenuItem.Image")));
             this.AddMemberToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AddMemberToolStripMenuItem.Name = "AddMemberToolStripMenuItem";
-            this.AddMemberToolStripMenuItem.Size = new System.Drawing.Size(163, 56);
+            this.AddMemberToolStripMenuItem.Size = new System.Drawing.Size(191, 56);
             this.AddMemberToolStripMenuItem.Text = "Üye Ekle";
             this.AddMemberToolStripMenuItem.Click += new System.EventHandler(this.AddMemberToolStripMenuItem_Click);
             // 
@@ -142,7 +148,7 @@ namespace LibraryManagementSystem
             this.MemberDetailsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("MemberDetailsToolStripMenuItem.Image")));
             this.MemberDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MemberDetailsToolStripMenuItem.Name = "MemberDetailsToolStripMenuItem";
-            this.MemberDetailsToolStripMenuItem.Size = new System.Drawing.Size(163, 56);
+            this.MemberDetailsToolStripMenuItem.Size = new System.Drawing.Size(191, 56);
             this.MemberDetailsToolStripMenuItem.Text = "Üye Listesi";
             this.MemberDetailsToolStripMenuItem.Click += new System.EventHandler(this.MemberDetailsToolStripMenuItem_Click);
             // 
@@ -153,7 +159,7 @@ namespace LibraryManagementSystem
             this.BorrowBookToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("BorrowBookToolStripMenuItem.Image")));
             this.BorrowBookToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.BorrowBookToolStripMenuItem.Name = "BorrowBookToolStripMenuItem";
-            this.BorrowBookToolStripMenuItem.Size = new System.Drawing.Size(169, 54);
+            this.BorrowBookToolStripMenuItem.Size = new System.Drawing.Size(200, 68);
             this.BorrowBookToolStripMenuItem.Text = "Kitap Emanet Etme";
             this.BorrowBookToolStripMenuItem.Visible = false;
             this.BorrowBookToolStripMenuItem.Click += new System.EventHandler(this.BorrowBookToolStripMenuItem_Click);
@@ -164,7 +170,7 @@ namespace LibraryManagementSystem
             this.ReturnBookToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ReturnBookToolStripMenuItem.Image")));
             this.ReturnBookToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ReturnBookToolStripMenuItem.Name = "ReturnBookToolStripMenuItem";
-            this.ReturnBookToolStripMenuItem.Size = new System.Drawing.Size(151, 54);
+            this.ReturnBookToolStripMenuItem.Size = new System.Drawing.Size(179, 68);
             this.ReturnBookToolStripMenuItem.Text = "Kitap İade Etme";
             this.ReturnBookToolStripMenuItem.Visible = false;
             this.ReturnBookToolStripMenuItem.Click += new System.EventHandler(this.ReturnBookToolStripMenuItem_Click);
@@ -174,7 +180,7 @@ namespace LibraryManagementSystem
             this.AllBorrowedBooksToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AllBorrowedBooksToolStripMenuItem.Image")));
             this.AllBorrowedBooksToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AllBorrowedBooksToolStripMenuItem.Name = "AllBorrowedBooksToolStripMenuItem";
-            this.AllBorrowedBooksToolStripMenuItem.Size = new System.Drawing.Size(187, 54);
+            this.AllBorrowedBooksToolStripMenuItem.Size = new System.Drawing.Size(224, 68);
             this.AllBorrowedBooksToolStripMenuItem.Text = "Emanet Edilen Kitaplar";
             this.AllBorrowedBooksToolStripMenuItem.Visible = false;
             this.AllBorrowedBooksToolStripMenuItem.Click += new System.EventHandler(this.AllBorrowedBooksToolStripMenuItem_Click);
@@ -185,41 +191,10 @@ namespace LibraryManagementSystem
             this.AllReturnedBooksToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AllReturnedBooksToolStripMenuItem.Image")));
             this.AllReturnedBooksToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AllReturnedBooksToolStripMenuItem.Name = "AllReturnedBooksToolStripMenuItem";
-            this.AllReturnedBooksToolStripMenuItem.Size = new System.Drawing.Size(169, 54);
+            this.AllReturnedBooksToolStripMenuItem.Size = new System.Drawing.Size(203, 68);
             this.AllReturnedBooksToolStripMenuItem.Text = "İade Edilen Kitaplar";
             this.AllReturnedBooksToolStripMenuItem.Visible = false;
             this.AllReturnedBooksToolStripMenuItem.Click += new System.EventHandler(this.AllReturnedBooksToolStripMenuItem_Click);
-            // 
-            // AuthorizeToolStripMenuItem
-            // 
-            this.AuthorizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddAuthToolStripMenuItem,
-            this.ListAuthToolStripMenuItem});
-            this.AuthorizeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AuthorizeToolStripMenuItem.Image")));
-            this.AuthorizeToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.AuthorizeToolStripMenuItem.Name = "AuthorizeToolStripMenuItem";
-            this.AuthorizeToolStripMenuItem.Size = new System.Drawing.Size(113, 54);
-            this.AuthorizeToolStripMenuItem.Text = "Yetkililer";
-            this.AuthorizeToolStripMenuItem.Visible = false;
-            // 
-            // AddAuthToolStripMenuItem
-            // 
-            this.AddAuthToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AddAuthToolStripMenuItem.Image")));
-            this.AddAuthToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.AddAuthToolStripMenuItem.Name = "AddAuthToolStripMenuItem";
-            this.AddAuthToolStripMenuItem.Size = new System.Drawing.Size(211, 56);
-            this.AddAuthToolStripMenuItem.Text = "Yetkili Ekle";
-            this.AddAuthToolStripMenuItem.Click += new System.EventHandler(this.AddAuthToolStripMenuItem_Click);
-            // 
-            // ListAuthToolStripMenuItem
-            // 
-            this.ListAuthToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ListAuthToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ListAuthToolStripMenuItem.Image")));
-            this.ListAuthToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ListAuthToolStripMenuItem.Name = "ListAuthToolStripMenuItem";
-            this.ListAuthToolStripMenuItem.Size = new System.Drawing.Size(211, 56);
-            this.ListAuthToolStripMenuItem.Text = "Yetkilileri Görüntüle";
-            this.ListAuthToolStripMenuItem.Click += new System.EventHandler(this.ListAuthToolStripMenuItem_Click);
             // 
             // LibraryToolStripMenuItem
             // 
@@ -230,7 +205,7 @@ namespace LibraryManagementSystem
             this.LibraryToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LibraryToolStripMenuItem.Image")));
             this.LibraryToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.LibraryToolStripMenuItem.Name = "LibraryToolStripMenuItem";
-            this.LibraryToolStripMenuItem.Size = new System.Drawing.Size(140, 54);
+            this.LibraryToolStripMenuItem.Size = new System.Drawing.Size(161, 68);
             this.LibraryToolStripMenuItem.Text = "Kütüphaneler";
             this.LibraryToolStripMenuItem.Visible = false;
             // 
@@ -239,7 +214,7 @@ namespace LibraryManagementSystem
             this.AddLibraryToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AddLibraryToolStripMenuItem.Image")));
             this.AddLibraryToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AddLibraryToolStripMenuItem.Name = "AddLibraryToolStripMenuItem";
-            this.AddLibraryToolStripMenuItem.Size = new System.Drawing.Size(238, 56);
+            this.AddLibraryToolStripMenuItem.Size = new System.Drawing.Size(283, 56);
             this.AddLibraryToolStripMenuItem.Text = "Kütüphane Ekle";
             this.AddLibraryToolStripMenuItem.Click += new System.EventHandler(this.AddLibraryToolStripMenuItem_Click);
             // 
@@ -249,7 +224,7 @@ namespace LibraryManagementSystem
             this.ListLibraryToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ListLibraryToolStripMenuItem.Image")));
             this.ListLibraryToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ListLibraryToolStripMenuItem.Name = "ListLibraryToolStripMenuItem";
-            this.ListLibraryToolStripMenuItem.Size = new System.Drawing.Size(238, 56);
+            this.ListLibraryToolStripMenuItem.Size = new System.Drawing.Size(283, 56);
             this.ListLibraryToolStripMenuItem.Text = "Kütüphaneleri Görüntüle";
             this.ListLibraryToolStripMenuItem.Click += new System.EventHandler(this.ListLibraryToolStripMenuItem_Click);
             // 
@@ -260,9 +235,22 @@ namespace LibraryManagementSystem
             this.ExitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ExitToolStripMenuItem.Image")));
             this.ExitToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(138, 54);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(162, 68);
             this.ExitToolStripMenuItem.Text = "Hesabı Kapat";
+            this.ExitToolStripMenuItem.Visible = false;
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
+            // LoginToolStripMenuItem
+            // 
+            this.LoginToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.LoginToolStripMenuItem.BackColor = System.Drawing.Color.SeaShell;
+            this.LoginToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LoginToolStripMenuItem.Image")));
+            this.LoginToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem";
+            this.LoginToolStripMenuItem.Size = new System.Drawing.Size(144, 68);
+            this.LoginToolStripMenuItem.Text = "Giriş Yap";
+            this.LoginToolStripMenuItem.Visible = false;
+            this.LoginToolStripMenuItem.Click += new System.EventHandler(this.LoginToolStripMenuItem_Click_1);
             // 
             // BtnClose
             // 
@@ -281,14 +269,79 @@ namespace LibraryManagementSystem
             this.BtnClose.UseVisualStyleBackColor = false;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
+            // DGVBooks
+            // 
+            this.DGVBooks.AllowUserToAddRows = false;
+            this.DGVBooks.AllowUserToDeleteRows = false;
+            this.DGVBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DGVBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVBooks.BackgroundColor = System.Drawing.Color.Snow;
+            this.DGVBooks.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DGVBooks.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DGVBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVBooks.Location = new System.Drawing.Point(204, 258);
+            this.DGVBooks.Name = "DGVBooks";
+            this.DGVBooks.ReadOnly = true;
+            this.DGVBooks.RowHeadersWidth = 51;
+            this.DGVBooks.Size = new System.Drawing.Size(967, 296);
+            this.DGVBooks.TabIndex = 7;
+            // 
+            // TBSearchBook
+            // 
+            this.TBSearchBook.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBSearchBook.Font = new System.Drawing.Font("Calibri", 12F);
+            this.TBSearchBook.Location = new System.Drawing.Point(558, 220);
+            this.TBSearchBook.Name = "TBSearchBook";
+            this.TBSearchBook.Size = new System.Drawing.Size(255, 32);
+            this.TBSearchBook.TabIndex = 6;
+            this.TBSearchBook.Text = "Kitap Ara";
+            this.TBSearchBook.TextChanged += new System.EventHandler(this.TBSearchBook_TextChanged);
+            // 
+            // AddAuthToolStripMenuItem
+            // 
+            this.AddAuthToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AddAuthToolStripMenuItem.Image")));
+            this.AddAuthToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.AddAuthToolStripMenuItem.Name = "AddAuthToolStripMenuItem";
+            this.AddAuthToolStripMenuItem.Size = new System.Drawing.Size(254, 56);
+            this.AddAuthToolStripMenuItem.Text = "Yetkili Ekle";
+            this.AddAuthToolStripMenuItem.Click += new System.EventHandler(this.AddAuthToolStripMenuItem_Click);
+            // 
+            // ListAuthToolStripMenuItem
+            // 
+            this.ListAuthToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ListAuthToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ListAuthToolStripMenuItem.Image")));
+            this.ListAuthToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ListAuthToolStripMenuItem.Name = "ListAuthToolStripMenuItem";
+            this.ListAuthToolStripMenuItem.Size = new System.Drawing.Size(254, 56);
+            this.ListAuthToolStripMenuItem.Text = "Yetkilileri Görüntüle";
+            this.ListAuthToolStripMenuItem.Click += new System.EventHandler(this.ListAuthToolStripMenuItem_Click);
+            // 
+            // AuthorizeToolStripMenuItem
+            // 
+            this.AuthorizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddAuthToolStripMenuItem,
+            this.ListAuthToolStripMenuItem});
+            this.AuthorizeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AuthorizeToolStripMenuItem.Image")));
+            this.AuthorizeToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.AuthorizeToolStripMenuItem.Name = "AuthorizeToolStripMenuItem";
+            this.AuthorizeToolStripMenuItem.Size = new System.Drawing.Size(129, 68);
+            this.AuthorizeToolStripMenuItem.Text = "Yetkililer";
+            this.AuthorizeToolStripMenuItem.Visible = false;
+            // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1317, 766);
+            this.Controls.Add(this.DGVBooks);
+            this.Controls.Add(this.TBSearchBook);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.menuStrip2);
             this.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
@@ -300,6 +353,7 @@ namespace LibraryManagementSystem
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVBooks)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,12 +373,15 @@ namespace LibraryManagementSystem
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AllReturnedBooksToolStripMenuItem;
         private System.Windows.Forms.Button BtnClose;
-        private System.Windows.Forms.ToolStripMenuItem AuthorizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem LibraryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AddAuthToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ListAuthToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AddLibraryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ListLibraryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TransferBookToolStripMenuItem;
+        private System.Windows.Forms.DataGridView DGVBooks;
+        private System.Windows.Forms.TextBox TBSearchBook;
+        private System.Windows.Forms.ToolStripMenuItem LoginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AuthorizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddAuthToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ListAuthToolStripMenuItem;
     }
 }

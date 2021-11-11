@@ -25,7 +25,7 @@ namespace LibraryManagementSystem
             con.Open();
             if (Login.Role != "Admin")
             {
-                cmd.CommandText = ("Select * from VW_LocalView where LibraryID = " + Login.LibID + "");
+                cmd.CommandText = ("Select * from W_LocalView where LibraryID =" + Login.LibID + "");
             }
             else
             {
@@ -36,18 +36,7 @@ namespace LibraryManagementSystem
             DataSet ds = new DataSet();
             da.Fill(ds);
             DGVBooks.DataSource = ds.Tables[0];
-            //if(Login.Role != "Admin")
-            //{
-            //    cmd.CommandText = ("Select Stock from ConnectionTbl where BookID in (" + Books + ")");
-            //    SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-            //    DataSet dataSet = new DataSet();
-            //    dataAdapter.Fill(dataSet);
-            //    for (int i = 0; i < DGVBooks.Rows.Count; i++)
-            //    {
-            //        DGVBooks.Rows[i].Cells[5].Value = ds.Tables[0].Rows[i][0].ToString();
-            //    }
-            //}
-            con.Close();
+              
         }
 
         int bookId;
@@ -115,7 +104,7 @@ namespace LibraryManagementSystem
             con.Open();
             if (TBSearchBook.Text!="" &&Login.Role== "Stok Sorumlusu")
             {
-                cmd.CommandText = ("Select * from BooksTbl where BookName LIKE '" + TBSearchBook.Text + "%' AND BookID in (" + Books + ")");
+                cmd.CommandText = ("Select * from BookTbl where BookName LIKE '" + TBSearchBook.Text + "%' AND BookID in (" + Books + ")");
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -123,7 +112,7 @@ namespace LibraryManagementSystem
             }
             else if(Login.Role == "Stok Sorumlusu")
             {
-                cmd.CommandText = ("Select * from BooksTbl where BookID in (" + Books + ")");
+                cmd.CommandText = ("Select * from BookTbl where BookID in (" + Books + ")");
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -131,7 +120,7 @@ namespace LibraryManagementSystem
             }
             else if(TBSearchBook.Text != "" && Login.Role == "Admin")
             {
-                cmd.CommandText = ("Select * from BooksTbl where BookName LIKE '" + TBSearchBook.Text + "%'");
+                cmd.CommandText = ("Select * from BookTbl where BookName LIKE '" + TBSearchBook.Text + "%'");
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -139,7 +128,7 @@ namespace LibraryManagementSystem
             }
             else
             {
-                cmd.CommandText = ("Select * from BooksTbl");
+                cmd.CommandText = ("Select * from BookTbl");
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);

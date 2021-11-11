@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace LibraryManagementSystem
@@ -8,6 +10,18 @@ namespace LibraryManagementSystem
         public Dashboard()
         {
             InitializeComponent();
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "data source = (localdb)\\MSSQLLocalDB ; database = Library; integrated security = True";
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            cmd.CommandText = ("Select * from BookTbl");
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            DGVBooks.DataSource = ds.Tables[0];
+            con.Close();
         }
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -30,7 +44,6 @@ namespace LibraryManagementSystem
                 obj.Show();
             }
         }
-
         private void AddNewBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBooks obj = new AddBooks();
@@ -92,16 +105,25 @@ namespace LibraryManagementSystem
                 LibraryToolStripMenuItem.Visible = true;
                 AuthorizeToolStripMenuItem.Visible = true;
                 kitaplarToolStripMenuItem.Visible = true;
-                TransferBookToolStripMenuItem.Visible = true;
                 AddNewBookToolStripMenuItem.Visible = true;
+                TransferBookToolStripMenuItem.Visible = false;
+                ExitToolStripMenuItem.Visible = true;
+                TBSearchBook.Visible = false;
+                DGVBooks.Visible = false;
+                LoginToolStripMenuItem.Visible = false;
             }
             else if (Login.Role == "Stok Sorumlusu")
             {
+                TransferBookToolStripMenuItem.Visible = true;
                 kitaplarToolStripMenuItem.Visible = true;
                 AddNewBookToolStripMenuItem.Visible = false;
                 AllBorrowedBooksToolStripMenuItem.Visible = true;
                 AllReturnedBooksToolStripMenuItem.Visible = true;
-                TransferBookToolStripMenuItem.Visible = false;
+                TransferBookToolStripMenuItem.Visible = true;
+                ExitToolStripMenuItem.Visible = true;
+                TBSearchBook.Visible = false;
+                DGVBooks.Visible = false;
+                LoginToolStripMenuItem.Visible = false;
             }
             else if (Login.Role == "Memur")
             {
@@ -109,6 +131,16 @@ namespace LibraryManagementSystem
                 BorrowBookToolStripMenuItem.Visible = true;
                 ReturnBookToolStripMenuItem.Visible = true;
                 TransferBookToolStripMenuItem.Visible = false;
+                ExitToolStripMenuItem.Visible = true;
+                TBSearchBook.Visible = false;
+                DGVBooks.Visible = false;
+                LoginToolStripMenuItem.Visible = false;
+            }
+            else
+            {
+                TBSearchBook.Visible = true;
+                DGVBooks.Visible = true;
+                LoginToolStripMenuItem.Visible = true;
             }
         }
         private void TransferBookToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,6 +180,52 @@ namespace LibraryManagementSystem
         {
 
             ViewUser obj = new ViewUser();
+            obj.Show();
+        }
+
+        private void TBSearchBook_TextChanged(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "data source = (localdb)\\MSSQLLocalDB ; database = Library; integrated security = True";
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            if (TBSearchBook.Text != "")
+            {
+                cmd.CommandText = ("Select * from BookTbl where BookName LIKE '" + TBSearchBook.Text + "%'");
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                DGVBooks.DataSource = ds.Tables[0];
+            }
+            else
+            {
+                cmd.CommandText = ("Select * from BookTbl");
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                DGVBooks.DataSource = ds.Tables[0];
+            }
+            con.Close();
+        }
+
+        private void LoginToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            LibraryToolStripMenuItem.Visible = false;
+            AuthorizeToolStripMenuItem.Visible = false;
+            kitaplarToolStripMenuItem.Visible = false;
+            AddNewBookToolStripMenuItem.Visible = false;
+            AllBorrowedBooksToolStripMenuItem.Visible = false;
+            ReturnBookToolStripMenuItem.Visible = false;
+            MemberToolStripMenuItem.Visible = false;
+            BorrowBookToolStripMenuItem.Visible = false;
+            AllReturnedBooksToolStripMenuItem.Visible = false;
+            TransferBookToolStripMenuItem.Visible = false;
+            TBSearchBook.Visible = false;
+            DGVBooks.Visible = false;
+            LoginToolStripMenuItem.Visible = false;
+            Login obj = new Login();
+            this.Hide();
             obj.Show();
         }
     }
