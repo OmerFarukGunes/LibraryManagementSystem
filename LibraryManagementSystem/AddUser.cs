@@ -117,17 +117,17 @@ namespace LibraryManagementSystem
         }
         private bool IsTC()
         {
-            //string pattern = (@"^([0-9]{4})\s?([0-9]{4})\s?([0-9]{4})\s?([0-9]{4})$");
-            //if (Regex.IsMatch(TBTC.Text, pattern))
-            //{
-            //    errorProvider4.Clear();
-            //    return true;
-            //}
-            //else
-            //{
-            //    errorProvider4.SetError(TBTC, "geçerli bir değer giriniz");
-            //    return false;
-            //}
+            string pattern = (@"^[1-9]{1}[0-9]{9}[02468]{1}$");
+            if (Regex.IsMatch(TBTC.Text, pattern))
+            {
+                errorProvider4.Clear();
+                return true;
+            }
+            else
+            {
+                errorProvider4.SetError(TBTC, "geçerli bir değer giriniz");
+                return false;
+            }
             return true;
         }
         private bool IsPhone()

@@ -147,7 +147,7 @@ namespace LibraryManagementSystem
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 con.Open();
-                cmd.CommandText = ("Delete From BooksTbl where BookId="+bookId+"");
+                cmd.CommandText = ("Delete From BookTbl where BookId="+bookId+"");
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);

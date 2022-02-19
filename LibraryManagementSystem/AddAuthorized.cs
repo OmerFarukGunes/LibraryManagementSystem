@@ -112,11 +112,9 @@ namespace LibraryManagementSystem
         }
         static string Encrypt(string value)
         {
-            //Using MD5 to encrypt a string
             using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
             {
                 UTF8Encoding utf8 = new UTF8Encoding();
-                //Hash data
                 byte[] data = md5.ComputeHash(utf8.GetBytes(value));
                 return Convert.ToBase64String(data);
             }
@@ -154,8 +152,7 @@ namespace LibraryManagementSystem
         private bool DBEmailChecked()
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = (localdb)\\MSSQLLocalDB ; database = Library; integrated security = True";
-            
+            con.ConnectionString = "data source = (localdb)\\MSSQLLocalDB ; database = Library; integrated security = True";           
             SqlCommand cmd = new SqlCommand("Select count(*) from LoginTbl where Email= @email", con);
             cmd.Parameters.AddWithValue("@email", this.TBEmail.Text);
             con.Open();

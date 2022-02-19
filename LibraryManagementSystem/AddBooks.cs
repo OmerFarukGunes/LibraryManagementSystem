@@ -21,7 +21,7 @@ namespace LibraryManagementSystem
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 con.Open();
-                cmd.CommandText = "insert into BookTbl (BookName,BookAuthor,BookPublication,BookPublishDate,BookQuantity,BookPrice) values('" + TBBookName.Text + "','" + TBBookAuthor.Text + "','" + TBPublication.Text + "','" + DateTime.Parse(DTPPublish.Text) + "'," + TBPrice.Text + "," + TBStock.Text + ")";
+                cmd.CommandText = "insert into BookTbl (BookName,BookAuthor,BookPublication,BookPublishDate,BookQuantity,BookPrice) values('" + TBBookName.Text + "','" + TBBookAuthor.Text + "','" + TBPublication.Text + "','" + DateTime.Parse(DTPPublish.Text) + "'," + TBStock.Text + "," + TBPrice.Text + ")";
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Veri Kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);

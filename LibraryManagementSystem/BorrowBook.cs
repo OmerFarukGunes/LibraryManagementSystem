@@ -191,7 +191,6 @@ namespace LibraryManagementSystem
                 BtnSave_Click("obj", EventArgs.Empty);
             }
         }
-
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             e.Graphics.DrawString("Maarif Kütüphaneleri",new Font("Century Gothic",12, FontStyle.Bold),Brushes.Black, new Point(140));

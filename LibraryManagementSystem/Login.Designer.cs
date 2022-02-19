@@ -69,7 +69,7 @@ namespace LibraryManagementSystem
             this.TBUserName.ForeColor = System.Drawing.Color.White;
             this.TBUserName.Location = new System.Drawing.Point(59, 254);
             this.TBUserName.Name = "TBUserName";
-            this.TBUserName.Size = new System.Drawing.Size(275, 14);
+            this.TBUserName.Size = new System.Drawing.Size(275, 17);
             this.TBUserName.TabIndex = 5;
             this.TBUserName.Text = "Kullanıcı Adı";
             this.TBUserName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TBUserName_MouseClick);
@@ -84,7 +84,7 @@ namespace LibraryManagementSystem
             this.TBPassword.Location = new System.Drawing.Point(59, 310);
             this.TBPassword.Name = "TBPassword";
             this.TBPassword.PasswordChar = '*';
-            this.TBPassword.Size = new System.Drawing.Size(275, 14);
+            this.TBPassword.Size = new System.Drawing.Size(275, 17);
             this.TBPassword.TabIndex = 6;
             this.TBPassword.Text = "Şifre";
             this.TBPassword.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TBPassword_MouseClick);
@@ -151,7 +151,7 @@ namespace LibraryManagementSystem
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(396, 599);
@@ -169,7 +169,7 @@ namespace LibraryManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Giriş Ekranı";
+            this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.PBWebLink)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Show)).EndInit();

@@ -37,11 +37,12 @@ namespace LibraryManagementSystem
                 BorrowBookToolStripMenuItem.Visible = false;
                 AllReturnedBooksToolStripMenuItem.Visible = false;
                 TransferBookToolStripMenuItem.Visible = false;
+                TBSearchBook.Visible = true;
+                DGVBooks.Visible = true;
+                LoginToolStripMenuItem.Visible = true;
+                ExitToolStripMenuItem.Visible = false;
                 Login.Role = "";
                 Login.LibID = "";
-                Login obj = new Login();
-                this.Hide();
-                obj.Show();
             }
         }
         private void AddNewBookToolStripMenuItem_Click(object sender, EventArgs e)

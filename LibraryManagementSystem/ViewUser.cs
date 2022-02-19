@@ -49,11 +49,11 @@ namespace LibraryManagementSystem
                 da.Fill(ds);
 
                 TBName.Text = ds.Tables[0].Rows[0][1].ToString();
-                TBSurname.Text = ds.Tables[0].Rows[0][2].ToString();
-                TBTC.Text = ds.Tables[0].Rows[0][3].ToString();
-                TBEmail.Text = ds.Tables[0].Rows[0][4].ToString();
-                TBPhone.Text = ds.Tables[0].Rows[0][5].ToString();
-                TBStudentNo.Text = ds.Tables[0].Rows[0][6].ToString();
+                TBSurname.Text = ds.Tables[0].Rows[0][6].ToString();
+                TBTC.Text = ds.Tables[0].Rows[0][2].ToString();
+                TBEmail.Text = ds.Tables[0].Rows[0][3].ToString();
+                TBPhone.Text = ds.Tables[0].Rows[0][4 ].ToString();
+                TBStudentNo.Text = ds.Tables[0].Rows[0][5].ToString();
 
                 con.Close();
             }
@@ -203,7 +203,7 @@ namespace LibraryManagementSystem
         }
         private bool IsTC()
         {
-            string pattern = (@"^([0-9]{4})\s?([0-9]{4})\s?([0-9]{4})\s?([0-9]{4})$");
+            string pattern = (@"^[1-9]{1}[0-9]{9}[02468]{1}$");
             if (Regex.IsMatch(TBTC.Text, pattern))
             {
                 errorProvider4.Clear();
@@ -238,5 +238,9 @@ namespace LibraryManagementSystem
             }
         }
 
+        private void DGVMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
